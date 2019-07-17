@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 interface FragmentParams<F : Fragment, P> {
     fun F.loadParams() = lazy { arguments.loadParams<P>() }
 
+    fun F.loadParams(defaultValue: P) = lazy { arguments.loadParams(defaultValue) }
+
     fun getFragmentClass(): Class<F>
 
     fun newInstance(params: P): F {

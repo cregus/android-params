@@ -7,6 +7,8 @@ import android.content.Intent
 interface ActivityParams<A : Activity, P> {
     fun A.loadParams() = lazy { intent.extras.loadParams<P>() }
 
+    fun A.loadParams(defaultValue: P) = lazy { intent.extras.loadParams(defaultValue) }
+
     fun getActivityClass(): Class<A>
 
     fun createIntent(context: Context, params: P): Intent {

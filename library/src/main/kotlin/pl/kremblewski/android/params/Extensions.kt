@@ -15,6 +15,15 @@ internal fun <P> Bundle?.loadParams(): P {
     }
 }
 
+internal fun <P> Bundle?.loadParams(defaultValue: P): P {
+    @Suppress("UNCHECKED_CAST")
+    return if (this?.containsKey(PARAMS_KEY) == true) {
+        get(PARAMS_KEY) as P
+    } else {
+        defaultValue
+    }
+}
+
 internal fun <P> Bundle.setParams(params: P) {
     when (params) {
         is String -> putString(PARAMS_KEY, params)
