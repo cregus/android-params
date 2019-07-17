@@ -39,12 +39,12 @@ and then:
 val intent = UserActivity.createIntent(context, 1)
 ```
 
-### Passing params to fragment
+### Passing params to fragment with default value
 ```kotlin
 class UserFragment : Fragment() {
     companion object : FragmentParams<UserFragment, Long> by fragmentParams()
 
-    private val id by loadParams()
+    private val id by loadParams(0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
